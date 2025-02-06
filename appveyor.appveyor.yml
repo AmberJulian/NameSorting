@@ -4,6 +4,9 @@ version: 1.0.{build}
 # Define build environment
 image: Visual Studio 2022  # Use Windows with VS 2022
 
+environment:
+  DOTNET_VERSION: 8.0.x  # Specify .NET 8
+
 # Install dependencies
 install:
   - cmd: dotnet restore
