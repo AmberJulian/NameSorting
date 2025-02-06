@@ -1,0 +1,14 @@
+# Set the version (auto increments on each build)
+version: 1.0.{build}
+
+# Define build environment
+image: Visual Studio 2022  # Use Windows with VS 2022
+
+# Install dependencies
+install:
+  - cmd: dotnet restore
+
+# Build and test
+build_script:
+  - cmd: dotnet build --configuration Release
+  - cmd: dotnet test
