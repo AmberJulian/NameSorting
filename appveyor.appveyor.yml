@@ -1,17 +1,16 @@
-# Define build environment
-image: Visual Studio 2022  # Use Windows with VS 2022
-
-environment:
-  DOTNET_VERSION: 8.0.x  # Specify .NET 8
+image: Visual Studio 2022  # Ensures the latest SDK is available
 
 install:
-  - ps: Install-Module -Name PowerShellGet -Force -SkipPublisherCheck
-  - ps: Install-Module -Name NuGet -Force -SkipPublisherCheck
-  - ps: choco install dotnet-sdk --version=8.0.100 -y
-  - ps: refreshenv 
+  - ps: |
+      $Env:DOTNET_SKIP_FIRST_TIME_EXPERIENCE=1
+      $Env:DOTNET_CLI_TELEMETRY_OPTOUT=1
+      $Env:DOTNET_NOLOGO=1
+      choco install dotnet-sdk --version=8.0.100 -y
+      refreshenv  # Reload environment variables
+      dotnet --list-sdks  # Verify installed SDKs
 
 build_script:
-  - cmd: dotnet --version  # Check installed .NET version
+  - cmd: dotnet --version  # Ensure we're using .NET 8
   - cmd: dotnet restore
   - cmd: dotnet build --configuration Release
   - cmd: dotnet test
