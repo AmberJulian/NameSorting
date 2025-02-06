@@ -7,7 +7,7 @@ environment:
 install:
   - ps: Install-Module -Name PowerShellGet -Force -SkipPublisherCheck
   - ps: Install-Module -Name NuGet -Force -SkipPublisherCheck
-  - ps: choco install dotnet-sdk --version=8.0.100
+  - ps: choco install dotnet-sdk --version=8.0.100 -y
 
 build_script:
   - cmd: dotnet --version  # Check installed .NET version
