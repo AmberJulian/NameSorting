@@ -1,14 +1,13 @@
 image: Visual Studio 2022  # Ensures the latest SDK is available
 
-install:
-  - ps: |
-      $Env:DOTNET_SKIP_FIRST_TIME_EXPERIENCE=1
-      $Env:DOTNET_CLI_TELEMETRY_OPTOUT=1
-      $Env:DOTNET_NOLOGO=1
-      choco install dotnet-sdk --version=8.0.100 -y
-      refreshenv  # Reload environment variables
-      dotnet --list-sdks  # Verify installed SDKs
+environment:
+  DOTNET_VERSION: 8.0.100
 
+install:
+  - cmd: echo "Using .NET version %DOTNET_VERSION%"
+  - cmd: choco upgrade dotnet-sdk -y
+  - cmd: dotnet --list-sdks
+  
 build_script:
   - cmd: dotnet --version  # Ensure we're using .NET 8
   - cmd: dotnet restore
