@@ -8,7 +8,6 @@ install:
   - cmd: dotnet --list-sdks  # List SDKs to verify installation
 
 build_script:
-  - cmd: echo "Current Directory: %cd%"  # Print the current working directory
   - cmd: dotnet --version  # Ensure we're using .NET 8
   - cmd: dotnet restore "NameSortingApp.sln"  # Use relative path to solution file
   - cmd: dotnet build "NameSortingApp.sln" --configuration Release
