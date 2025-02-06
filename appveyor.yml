@@ -1,11 +1,11 @@
-image: Visual Studio 2022
+image: Visual Studio 2022  # Ensures the latest SDK is available
 
 environment:
-  DOTNET_VERSION: 8.0.100
+  DOTNET_VERSION: 8.0.100  # Set desired .NET version
 
 install:
-  - cmd: echo "Using .NET version %DOTNET_VERSION%"
-  - cmd: choco upgrade dotnet-sdk -y
+  - cmd: choco upgrade dotnet-sdk -y  # Upgrade or install .NET SDK
+  - cmd: dotnet --list-sdks  # List SDKs to verify installation
 
 build_script:
   - cmd: echo "Current Directory: %cd%"  # Print the current working directory
