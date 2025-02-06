@@ -1,6 +1,3 @@
-# Set the version (auto increments on each build)
-version: 1.0.{build}
-
 # Define build environment
 image: Visual Studio 2022  # Use Windows with VS 2022
 
