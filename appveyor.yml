@@ -6,12 +6,10 @@ environment:
 install:
   - cmd: echo "Using .NET version %DOTNET_VERSION%"
   - cmd: choco upgrade dotnet-sdk -y
-  - cmd: dotnet --list-sdks
-  
 
 build_script:
   - cmd: echo "Current Directory: %cd%"  # Print the current working directory
   - cmd: dotnet --version  # Ensure we're using .NET 8
-  - cmd: dotnet restore "C:\projects\namesorting\NameSortingApp.sln"  # Use full path to solution
-  - cmd: dotnet build "C:\projects\namesorting\NameSortingApp.sln" --configuration Release
-  - cmd: dotnet test "C:\projects\namesorting\NameSortingApp.sln"
+  - cmd: dotnet restore "NameSortingApp.sln"  # Use relative path to solution file
+  - cmd: dotnet build "NameSortingApp.sln" --configuration Release
+  - cmd: dotnet test "NameSortingApp.sln"
