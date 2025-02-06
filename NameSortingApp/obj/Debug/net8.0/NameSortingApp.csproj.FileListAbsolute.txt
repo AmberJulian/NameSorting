@@ -1,0 +1,15 @@
+C:\Users\Admin\Documents\WebDevRepos\NameSorting\NameSortingApp\bin\Debug\net8.0\NameSortingApp.exe
+C:\Users\Admin\Documents\WebDevRepos\NameSorting\NameSortingApp\bin\Debug\net8.0\NameSortingApp.deps.json
+C:\Users\Admin\Documents\WebDevRepos\NameSorting\NameSortingApp\bin\Debug\net8.0\NameSortingApp.runtimeconfig.json
+C:\Users\Admin\Documents\WebDevRepos\NameSorting\NameSortingApp\bin\Debug\net8.0\NameSortingApp.dll
+C:\Users\Admin\Documents\WebDevRepos\NameSorting\NameSortingApp\bin\Debug\net8.0\NameSortingApp.pdb
+C:\Users\Admin\Documents\WebDevRepos\NameSorting\NameSortingApp\obj\Debug\net8.0\NameSortingApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\Documents\WebDevRepos\NameSorting\NameSortingApp\obj\Debug\net8.0\NameSortingApp.AssemblyInfoInputs.cache
+C:\Users\Admin\Documents\WebDevRepos\NameSorting\NameSortingApp\obj\Debug\net8.0\NameSortingApp.AssemblyInfo.cs
+C:\Users\Admin\Documents\WebDevRepos\NameSorting\NameSortingApp\obj\Debug\net8.0\NameSortingApp.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Documents\WebDevRepos\NameSorting\NameSortingApp\obj\Debug\net8.0\NameSortingApp.sourcelink.json
+C:\Users\Admin\Documents\WebDevRepos\NameSorting\NameSortingApp\obj\Debug\net8.0\NameSortingApp.dll
+C:\Users\Admin\Documents\WebDevRepos\NameSorting\NameSortingApp\obj\Debug\net8.0\refint\NameSortingApp.dll
+C:\Users\Admin\Documents\WebDevRepos\NameSorting\NameSortingApp\obj\Debug\net8.0\NameSortingApp.pdb
+C:\Users\Admin\Documents\WebDevRepos\NameSorting\NameSortingApp\obj\Debug\net8.0\NameSortingApp.genruntimeconfig.cache
+C:\Users\Admin\Documents\WebDevRepos\NameSorting\NameSortingApp\obj\Debug\net8.0\ref\NameSortingApp.dll

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NameSortingApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e9a2c5ace186060e9d0cc4f71dad6ed0968c39c3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5ea37a96f1b94eaef12e301ba9718dd26798103b")]
 [assembly: System.Reflection.AssemblyProductAttribute("NameSortingApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NameSortingApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
