@@ -1,21 +1,13 @@
-﻿using Namesorting.Utils;
-
-namespace NameSorting
+﻿namespace NameSorting
 {
     class Program
     {
+        //Program Starts Execution from here
         static void Main(string[] args)
         {
-            string[]? fileStrings = FileReadWriter.GetFileContents("/unsorted-names-list.txt");
-            if (fileStrings == null)
-            {
-                Console.WriteLine("Exiting Program early due to file reading error."); ;
-                return;
-            }
-            foreach (string line in fileStrings)
-            {
-                Console.WriteLine(line);
-            }
-        }
+            NameSorter.SortNamesInFile("unsorted-names-list.txt");
+            Console.WriteLine("TODO: Get names list from args");
+            return;
+        }     
     }
 }
