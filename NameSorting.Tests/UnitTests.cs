@@ -20,7 +20,7 @@ namespace NameSorting.Tests
         [Test]
         public void TestNameSortingFunction()
         {
-            string[] nameArrayExample = { "Kitty Fairy", "Pandy", "Mercat", "Gabby", "CatRat" }; 
+            string[] nameArrayExample = { "Kitty Fairy", "Pandy", "Mercat", "Gabby", "CatRat" };
             List<string> namesAfterSorting = NameSorter.SortStrings(nameArrayExample);
             List<string> expectedSortedNames = new List<string> { "CatRat", "Gabby", "Kitty Fairy", "Mercat", "Pandy" };
 
@@ -33,6 +33,10 @@ namespace NameSorting.Tests
         public void CheckThatFileExists()
         {
             string filePath = FileReadWriter.GetFinalPath("/unsorted-names-list.txt");
+            if (!File.Exists(filePath))
+            {
+                Console.WriteLine($"This is the file path we are checking for the unsorted names: {filePath}. Something has gone wrong.");
+            }
             Assert.That(File.Exists(filePath));
         }
 
@@ -44,7 +48,7 @@ namespace NameSorting.Tests
             string filePath = FileReadWriter.GetFinalPath(testOneFileName);
             List<string> sortedFileStrings = File.ReadAllLines(filePath).ToList();
 
-            List<string> expectedSortedStrings = new List<string> {"Box Cat", "Cakey", "Gabby", "Pandy Paws", "Pillow Cat" };
+            List<string> expectedSortedStrings = new List<string> { "Box Cat", "Cakey", "Gabby", "Pandy Paws", "Pillow Cat" };
             Assert.That(sortedFileStrings.SequenceEqual(expectedSortedStrings));
         }
 

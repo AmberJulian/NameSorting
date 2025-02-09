@@ -8,7 +8,7 @@ install:
   - cmd: dotnet --list-sdks  # List SDKs to verify installation
 
 test_script:
-  - dotnet test --no-build --verbosity normal
+  - dotnet test --no-build --logger "console;verbosity=detailed"
 
 build_script:
   - cmd: dotnet --version  # Ensure we're using .NET 8
