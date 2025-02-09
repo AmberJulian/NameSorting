@@ -3,12 +3,19 @@
     static class FileReadWriter
     {
         // ================= PROPERTIES =================
-        private static string solutionPath 
+        //If running from.exe, this is most likely to work. 
+        private static string solutionPath
         {
             get
             {
-                string basePath = AppDomain.CurrentDomain.BaseDirectory;
-                return Path.GetFullPath(Path.Combine(basePath, @"..\..\.."));
+                bool isRunningInVS = Environment.GetEnvironmentVariable("VisualStudioVersion") != null;
+                if (isRunningInVS)
+                {
+                    string basePath = AppDomain.CurrentDomain.BaseDirectory;
+                    return Path.GetFullPath(Path.Combine(basePath, @"..\..\.."));
+                }
+
+                return AppDomain.CurrentDomain.BaseDirectory;
             }
         }
 
