@@ -7,6 +7,9 @@ install:
   - cmd: choco upgrade dotnet-sdk -y  # Upgrade or install .NET SDK
   - cmd: dotnet --list-sdks  # List SDKs to verify installation
 
+test_script:
+  - dotnet test --no-build --verbosity normal
+
 build_script:
   - cmd: dotnet --version  # Ensure we're using .NET 8
   - cmd: dotnet restore "NameSortingApp.sln"  # Use relative path to solution file
