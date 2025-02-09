@@ -45,7 +45,7 @@ namespace NameSorting.Tests
         public void TestFullProgramOne()
         {
             NameSorter.SortNamesInFile(testOneFileName);
-            string filePath = FileReadWriter.GetFinalPath(testOneFileName);
+            string filePath = FileReadWriter.GetFinalPath("sorted-names-list.txt");
             List<string> sortedFileStrings = File.ReadAllLines(filePath).ToList();
 
             List<string> expectedSortedStrings = new List<string> { "Box Cat", "Cakey", "Gabby", "Pandy Paws", "Pillow Cat" };
@@ -60,7 +60,7 @@ namespace NameSorting.Tests
             FileReadWriter.WriteStringListToFile(nameListExample, testTwoFileName);
 
             NameSorter.SortNamesInFile(testTwoFileName);
-            string filePath = FileReadWriter.GetFinalPath(testTwoFileName);
+            string filePath = FileReadWriter.GetFinalPath("sorted-names-list.txt");
             List<string> sortedFileStrings = File.ReadAllLines(filePath).ToList();
 
             List<string> expectedSortedStrings = new List<string> { "CatRat", "Gabby", "Kitty Fairy", "Mercat", "Pandy" };

@@ -27,7 +27,7 @@
         /// <returns></returns>
         public static string GetFinalPath(string fileName)
         {
-            return solutionPath + "\\" + fileName;
+            return solutionPath + @"\" + fileName;
         }
 
         /// <summary>
