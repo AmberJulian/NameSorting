@@ -1,8 +1,6 @@
 using NUnit.Framework;
-using NameSorting;
 using Namesorting.Utils;
-using System.Runtime.CompilerServices;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+
 
 namespace NameSorting.Tests
 {

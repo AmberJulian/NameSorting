@@ -1,6 +1,4 @@
-﻿using System.IO;
-
-namespace Namesorting.Utils
+﻿namespace Namesorting.Utils
 {
     static class FileReadWriter
     {
