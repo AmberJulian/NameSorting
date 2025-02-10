@@ -9,7 +9,7 @@ test_script:
 build_script:
   - cmd: dotnet --version  # Ensure we're using .NET 8
   - cmd: dotnet build "NameSortingApp.sln" --configuration Release
-  - cmd: dotnet test "NameSortingApp.sln"s
+  - cmd: dotnet test "NameSortingApp.sln"
   - cmd: mkdir release
   - cmd: copy bin\Release\net8.0\NameSortingApp.exe release\
   - cmd: copy bin\Release\net8.0\NameSortingApp.dll release\
