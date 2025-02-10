@@ -20,7 +20,7 @@ artifacts:   # Artifacts (Specify what files to deploy)
 deploy:
   - provider: GitHub
     auth_token:
-      secure: YOUR_ENCRYPTED_GITHUB_TOKEN
+      secure: mIBEb8iOMalCmZHKVnSuTx3jPuY9IIjRIJoRXjypEIvF25dXs2E+6P/Df5f8106d
     artifact: /.*\.exe/
     tag: v1.0.{build}
     release: MyApp Release v1.0.{build}
