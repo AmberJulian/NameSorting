@@ -10,3 +10,19 @@ build_script:
   - cmd: dotnet --version  # Ensure we're using .NET 8
   - cmd: dotnet build "NameSortingApp.sln" --configuration Release
   - cmd: dotnet test "NameSortingApp.sln"
+  
+
+artifacts:   # Artifacts (Specify what files to deploy)
+  - path: bin\Release\YourProject.exe
+    name: MyApplication
+
+# Deployment Configuration (e.g., GitHub Releases, FTP, or S3)
+deploy:
+  - provider: GitHub
+    auth_token:
+      secure: YOUR_ENCRYPTED_GITHUB_TOKEN
+    artifact: /.*\.exe/
+    tag: v1.0.{build}
+    release: MyApp Release v1.0.{build}
+    draft: false
+    prerelease: false
