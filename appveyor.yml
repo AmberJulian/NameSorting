@@ -3,15 +3,10 @@ image: Visual Studio 2022  # Ensures the latest SDK is available
 environment:
   DOTNET_VERSION: 8.0.100  # Set desired .NET version
 
-install:
-  - cmd: choco upgrade dotnet-sdk -y  # Upgrade or install .NET SDK
-  - cmd: dotnet --list-sdks  # List SDKs to verify installation
-
 test_script:
   - dotnet test --no-build --logger "console;verbosity=detailed"
 
 build_script:
   - cmd: dotnet --version  # Ensure we're using .NET 8
-  - cmd: dotnet restore "NameSortingApp.sln"  # Use relative path to solution file
   - cmd: dotnet build "NameSortingApp.sln" --configuration Release
   - cmd: dotnet test "NameSortingApp.sln"
