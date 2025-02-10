@@ -13,12 +13,8 @@ build_script:
   
 
 artifacts:   # Artifacts (Specify what files to deploy)
-  - path: bin\Release\net8.0\NameSortingApp.exe
+  - path: bin\Release\net8.0\*
     name: NameSortingApp
-  - path: bin\Release\net8.0\NameSortingApp.dll
-    name: DLLs
-  - path: bin\Release\NameSortingApp.runtimeconfig.json
-    name: Config
 
 # Deployment Configuration (e.g., GitHub Releases, FTP, or S3)
 deploy:
@@ -26,7 +22,7 @@ deploy:
     auth_token:
       secure: mIBEb8iOMalCmZHKVnSuTx3jPuY9IIjRIJoRXjypEIvF25dXs2E+6P/Df5f8106d
     artifact: /.*\.exe/
-    tag: v1.0.{build}
-    release: NameSortingApp Release v1.0.{build}
+    tag: v1.1.{build}
+    release: NameSortingApp Release v1.1.{build}
     draft: false
     prerelease: false
