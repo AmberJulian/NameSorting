@@ -13,8 +13,8 @@ build_script:
   
 
 artifacts:   # Artifacts (Specify what files to deploy)
-  - path: bin\Release\YourProject.exe
-    name: MyApplication
+  - path: bin\Release\NameSortingApp.exe
+    name: NameSortingApp
 
 # Deployment Configuration (e.g., GitHub Releases, FTP, or S3)
 deploy:
@@ -23,6 +23,6 @@ deploy:
       secure: mIBEb8iOMalCmZHKVnSuTx3jPuY9IIjRIJoRXjypEIvF25dXs2E+6P/Df5f8106d
     artifact: /.*\.exe/
     tag: v1.0.{build}
-    release: MyApp Release v1.0.{build}
+    release: NameSortingApp Release v1.0.{build}
     draft: false
     prerelease: false
