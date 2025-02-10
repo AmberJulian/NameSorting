@@ -5,6 +5,7 @@ This will run a debug build, which should create a second file "sorted-names-lis
 There's also a .mp4 file in the build folder - If for whatever reason it isn't working, please refer to the video for what it should look like. 
 I've also included some screenshots from AppVeyor to confirm testing/deployment  
 
+Alternatively, download from https://github.com/AmberJulian/NameSorting/releases and follow the instructions in the other readme intended for the release version
 
 
 Notes for test marker: 
