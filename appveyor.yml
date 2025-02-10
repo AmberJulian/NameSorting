@@ -14,7 +14,7 @@ build_script:
   - cmd: copy bin\Release\net8.0\NameSortingApp.exe release\
   - cmd: copy bin\Release\net8.0\NameSortingApp.dll release\
   - cmd: copy bin\Release\net8.0\NameSortingApp.runtimeconfig.json release\
-  - cmd: copy README.md release\
+  - cmd: copy README.txt release\
   
 
 artifacts:   # Artifacts (Specify what files to deploy)
