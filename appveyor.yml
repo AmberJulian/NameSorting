@@ -15,10 +15,11 @@ build_script:
   - cmd: copy bin\Release\net8.0\NameSortingApp.dll release\
   - cmd: copy bin\Release\net8.0\NameSortingApp.runtimeconfig.json release\
   - cmd: copy README.txt release\
+  - cmd: powershell Compress-Archive -Path release\* -DestinationPath release.zip
   
 
 artifacts:   # Artifacts (Specify what files to deploy)
-  - path: release\*
+  - path: release.zip
     name: NameSortingApp
 
 # Deployment Configuration (e.g., GitHub Releases, FTP, or S3)
@@ -26,7 +27,7 @@ deploy:
   - provider: GitHub
     auth_token:
       secure: mIBEb8iOMalCmZHKVnSuTx3jPuY9IIjRIJoRXjypEIvF25dXs2E+6P/Df5f8106d
-    artifact: release\*
+    artifact: release.zip
     tag: v1.0.{build}
     release: NameSortingApp Release v1.0.{build}
     draft: false
