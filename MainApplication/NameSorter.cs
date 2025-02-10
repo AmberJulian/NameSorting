@@ -2,7 +2,7 @@
 
 namespace NameSorting
 {
-    public static class NameSorter
+    public static class NameSorter 
     {
         // ============== VARIABLES =================
         private const string sortedListFileName = "sorted-names-list.txt"; //Providing this as a const string. Might be worth taking it as an argument when app is launched. 
