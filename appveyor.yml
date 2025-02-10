@@ -15,6 +15,10 @@ build_script:
 artifacts:   # Artifacts (Specify what files to deploy)
   - path: bin\Release\net8.0\NameSortingApp.exe
     name: NameSortingApp
+  - path: bin\Release\net8.0\NameSortingApp.dll
+    name: DLLs
+  - path: bin\Release\NameSortingApp.runtimeconfig.json
+    name: Config
 
 # Deployment Configuration (e.g., GitHub Releases, FTP, or S3)
 deploy:
