@@ -10,10 +10,14 @@ build_script:
   - cmd: dotnet --version  # Ensure we're using .NET 8
   - cmd: dotnet build "NameSortingApp.sln" --configuration Release
   - cmd: dotnet test "NameSortingApp.sln"
+  - cmd: mkdir release
+  - cmd: copy README.txt release\
   
 
 artifacts:   # Artifacts (Specify what files to deploy)
   - path: bin\Release\net8.0\*
+    name: NameSortingApp
+  - path: release\*
     name: NameSortingApp
 
 # Deployment Configuration (e.g., GitHub Releases, FTP, or S3)
@@ -21,7 +25,7 @@ deploy:
   - provider: GitHub
     auth_token:
       secure: mIBEb8iOMalCmZHKVnSuTx3jPuY9IIjRIJoRXjypEIvF25dXs2E+6P/Df5f8106d
-    artifact:  /.NameSortingApp\.exe|.NameSortingApp\.dll|.*\.runtimeconfig.json/
+    artifact: /.NameSortingApp\.exe|.*NameSortingApp\.dll|.*\.runtimeconfig.json/
     tag: v1.0.{build}
     release: NameSortingApp Release v1.0.{build}
     draft: false
