@@ -12,7 +12,7 @@ namespace NameSorting
         /// Takes in a file name and attempts to sort contents inside it
         /// </summary>
         /// <param name="fileName"></param> The name of the file
-        public static void SortNamesInFile(string fileName)
+        public static void SortNamesInFile(string fileName, bool forwardSortingOrder)
         {
             //Get the strings from the file
             string[]? unsortedFileStrings = FileReadWriter.GetFileContents(fileName);
@@ -22,7 +22,9 @@ namespace NameSorting
                 return;
             }
 
-            List<string> sortedStrings = SortStrings(unsortedFileStrings);
+            List<string> sortedStrings = SortStrings(unsortedFileStrings, forwardSortingOrder);
+
+
 
             FileReadWriter.WriteStringListToFile(sortedStrings, sortedListFileName);
         }
@@ -32,10 +34,15 @@ namespace NameSorting
         /// </summary>
         /// <param name="unsortedFileStrings"></param> Unsorted string array
         /// <returns></returns>
-        public static List<string> SortStrings(string[] unsortedStrings)
+        public static List<string> SortStrings(string[] unsortedStrings, bool forwardSortingOrder)
         {
             List<string> stringList = new List<string>(unsortedStrings);
-            stringList.Sort();
+            stringList.Sort( );
+            if (forwardSortingOrder)
+            {
+                stringList.Reverse();
+            }
+
             return stringList;
         }
     }

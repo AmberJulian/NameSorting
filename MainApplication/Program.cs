@@ -1,4 +1,6 @@
-﻿namespace NameSorting
+﻿using System.Collections.Generic;
+
+namespace NameSorting
 {
     class Program
     {
@@ -10,8 +12,15 @@
                 Console.WriteLine("Error: Please run again providing a file name.");
                 return;
             }
+
+            // ./programName, unsorted - names - list.txt, true
+
             string fileName = args[0];
-            NameSorter.SortNamesInFile(fileName);
+            bool forwardSortingOrder = args[1] == "true";
+
+
+
+            NameSorter.SortNamesInFile(fileName, forwardSortingOrder);
             Console.WriteLine($"Successfully sorted names from {fileName}!");
 
             Console.WriteLine("Press any key to exit...");
