@@ -50,9 +50,9 @@ namespace NameSorting.Tests
 
         [Test]
         ////Tests the file created in our set up
-        public void TestFullProgramOne()
+        public void TestFullProgramForwardOrderOne()
         {
-            NameSorter.SortNamesInFile(testOneFileName);
+            NameSorter.SortNamesInFile(testOneFileName, true);
             string filePath = FileReadWriter.GetFinalPath("sorted-names-list.txt");
             List<string> sortedFileStrings = File.ReadAllLines(filePath).ToList();
 
@@ -62,16 +62,43 @@ namespace NameSorting.Tests
 
         [Test]
         ////Creates a file using functions created in our program, sorts it and tests it. 
-        public void TestFullProgramTwo()
+        public void TestFullProgramForwardOrderTwo()
         {
             List<string> nameListExample = ["Kitty Fairy", "Pandy", "Mercat", "Gabby", "CatRat"];
             FileReadWriter.WriteStringListToFile(nameListExample, testTwoFileName);
 
-            NameSorter.SortNamesInFile(testTwoFileName);
+            NameSorter.SortNamesInFile(testTwoFileName, true);
             string filePath = FileReadWriter.GetFinalPath("sorted-names-list.txt");
             List<string> sortedFileStrings = File.ReadAllLines(filePath).ToList();
 
             List<string> expectedSortedStrings = new List<string> { "CatRat", "Gabby", "Kitty Fairy", "Mercat", "Pandy" };
+            Assert.That(sortedFileStrings.SequenceEqual(expectedSortedStrings));
+        }
+
+        [Test]
+        ////Tests the file created in our set up
+        public void TestFullProgramReverseOrderOne()
+        {
+            NameSorter.SortNamesInFile(testOneFileName, false);
+            string filePath = FileReadWriter.GetFinalPath("sorted-names-list.txt");
+            List<string> sortedFileStrings = File.ReadAllLines(filePath).ToList();
+
+            List<string> expectedSortedStrings = new List<string> { "Pillow Cat", "Pandy Paws", "Gabby", "Cakey", "Box Cat" };
+            Assert.That(sortedFileStrings.SequenceEqual(expectedSortedStrings));
+        }
+
+        [Test]
+        ////Creates a file using functions created in our program, sorts it and tests it. 
+        public void TestFullProgramReverseOrderTwo()
+        {
+            List<string> nameListExample = ["Kitty Fairy", "Pandy", "Mercat", "Gabby", "CatRat"];
+            FileReadWriter.WriteStringListToFile(nameListExample, testTwoFileName);
+
+            NameSorter.SortNamesInFile(testTwoFileName, false);
+            string filePath = FileReadWriter.GetFinalPath("sorted-names-list.txt");
+            List<string> sortedFileStrings = File.ReadAllLines(filePath).ToList();
+
+            List<string> expectedSortedStrings = new List<string> { "Pandy", "Mercat", "Kitty Fairy", "Gabby", "CatRat"};
             Assert.That(sortedFileStrings.SequenceEqual(expectedSortedStrings));
         }
 
