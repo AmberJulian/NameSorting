@@ -1,4 +1,5 @@
 ﻿using Namesorting.Utils;
+using System.Linq;
 
 namespace NameSorting
 {
@@ -22,9 +23,15 @@ namespace NameSorting
                 return;
             }
 
-            List<string> sortedStrings = SortStrings(unsortedFileStrings, forwardSortingOrder);
-
-
+            List<string> sortedStrings;
+            if (forwardSortingOrder)
+            {
+                sortedStrings = SortStringsForward(unsortedFileStrings);
+            }
+            else
+            {
+                sortedStrings = SortStringsBackward(unsortedFileStrings);
+            }
 
             FileReadWriter.WriteStringListToFile(sortedStrings, sortedListFileName);
         }
@@ -34,16 +41,23 @@ namespace NameSorting
         /// </summary>
         /// <param name="unsortedFileStrings"></param> Unsorted string array
         /// <returns></returns>
-        public static List<string> SortStrings(string[] unsortedStrings, bool forwardSortingOrder = true)
+        public static List<string> SortStringsForward(string[] unsortedStrings)
         {
-            List<string> stringList = new List<string>(unsortedStrings);
-            stringList.Sort( );
-            if (!forwardSortingOrder)
-            {
-                stringList.Reverse();
-            }
+            List<string> sortedNames = unsortedStrings.OrderBy(name => name.Split().Last()).ToList();
+            return sortedNames;
+        }
 
-            return stringList;
+
+        /// <summary>
+        /// Turn any string array into a sorted string list.
+        /// </summary>
+        /// <param name="unsortedFileStrings"></param> Unsorted string array
+        /// <returns></returns>
+        public static List<string> SortStringsBackward(string[] unsortedStrings)
+        {
+            List<string> sortedNames = SortStringsForward(unsortedStrings);
+            sortedNames.Reverse();
+            return sortedNames; 
         }
     }
 }

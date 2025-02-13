@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using Namesorting.Utils;
+using System;
 
 
 namespace NameSorting.Tests
@@ -13,16 +14,27 @@ namespace NameSorting.Tests
         public void SetUp()
         {
             //Make a new file to test for full program test one
-            string newLine = Environment.NewLine; //usually /n
-            File.WriteAllText(FileReadWriter.GetFinalPath(testOneFileName), $"Pandy Paws{newLine}Pillow Cat{newLine}Cakey{newLine}Gabby{newLine}Box Cat");
+            string newLine = Environment.NewLine; //usually /n        
+
+            File.WriteAllText(FileReadWriter.GetFinalPath(testOneFileName), $"Janet Parsons{newLine}Vaughn Lewis{newLine}Adonis Julius Archer{newLine}Shelby Nathan Yoder{newLine}Marin Alvarez{newLine}London Lindsey{newLine}Beau Tristan Bentley{newLine}Leo Gardner{newLine}Hunter Uriah Mathew Clarke{newLine}Mikayla Lopez{newLine}Frankie Conner Ritter{newLine}");
         }
 
         [Test]
         public void TestNameSortingFunction()
         {
-            string[] nameArrayExample = { "Kitty Fairy", "Pandy", "Mercat", "Gabby", "CatRat" };
-            List<string> namesAfterSorting = NameSorter.SortStrings(nameArrayExample);
-            List<string> expectedSortedNames = new List<string> { "CatRat", "Gabby", "Kitty Fairy", "Mercat", "Pandy" };
+            string[] nameArrayExample = { "Janet Parsons", "Vaughn Lewis", "Adonis Julius Archer", "Shelby Nathan Yoder", "Marin Alvarez", "London Lindsey", "Beau Tristan Bentley", "Leo Gardner", "Hunter Uriah Mathew Clarke", "Mikayla Lopez", "Frankie Conner Ritter" };
+            List<string> namesAfterSorting = NameSorter.SortStringsForward(nameArrayExample);
+            List<string> expectedSortedNames = new List<string> { "Marin Alvarez", "Adonis Julius Archer", "Beau Tristan Bentley", "Hunter Uriah Mathew Clarke", "Leo Gardner", "Vaughn Lewis", "London Lindsey", "Mikayla Lopez", "Janet Parsons", "Frankie Conner Ritter", "Shelby Nathan Yoder"};
+
+            Assert.That(namesAfterSorting.SequenceEqual(expectedSortedNames));
+        }
+
+        [Test]
+        public void TestReverseNameSortingFunction()
+        {
+            string[] nameArrayExample = { "Janet Parsons", "Vaughn Lewis", "Adonis Julius Archer", "Shelby Nathan Yoder", "Marin Alvarez", "London Lindsey", "Beau Tristan Bentley", "Leo Gardner", "Hunter Uriah Mathew Clarke", "Mikayla Lopez", "Frankie Conner Ritter" };
+            List<string> namesAfterSorting = NameSorter.SortStringsBackward(nameArrayExample);
+            List<string> expectedSortedNames = new List<string> { "Shelby Nathan Yoder", "Frankie Conner Ritter", "Janet Parsons", "Mikayla Lopez", "London Lindsey", "Vaughn Lewis", "Leo Gardner", "Hunter Uriah Mathew Clarke", "Beau Tristan Bentley", "Adonis Julius Archer", "Marin Alvarez" };
 
             Assert.That(namesAfterSorting.SequenceEqual(expectedSortedNames));
         }
@@ -56,23 +68,23 @@ namespace NameSorting.Tests
             string filePath = FileReadWriter.GetFinalPath("sorted-names-list.txt");
             List<string> sortedFileStrings = File.ReadAllLines(filePath).ToList();
 
-            List<string> expectedSortedStrings = new List<string> { "Box Cat", "Cakey", "Gabby", "Pandy Paws", "Pillow Cat" };
-            Assert.That(sortedFileStrings.SequenceEqual(expectedSortedStrings));
+            List<string> expectedSortedNames = new List<string> { "Marin Alvarez", "Adonis Julius Archer", "Beau Tristan Bentley", "Hunter Uriah Mathew Clarke", "Leo Gardner", "Vaughn Lewis", "London Lindsey", "Mikayla Lopez", "Janet Parsons", "Frankie Conner Ritter", "Shelby Nathan Yoder" };
+            Assert.That(sortedFileStrings.SequenceEqual(expectedSortedNames));
         }
 
         [Test]
         ////Creates a file using functions created in our program, sorts it and tests it. 
         public void TestFullProgramForwardOrderTwo()
         {
-            List<string> nameListExample = ["Kitty Fairy", "Pandy", "Mercat", "Gabby", "CatRat"];
+            List<string> nameListExample = ["Janet Parsons", "Vaughn Lewis", "Adonis Julius Archer", "Shelby Nathan Yoder", "Marin Alvarez", "London Lindsey", "Beau Tristan Bentley", "Leo Gardner", "Hunter Uriah Mathew Clarke", "Mikayla Lopez", "Frankie Conner Ritter"];
             FileReadWriter.WriteStringListToFile(nameListExample, testTwoFileName);
 
             NameSorter.SortNamesInFile(testTwoFileName, true);
             string filePath = FileReadWriter.GetFinalPath("sorted-names-list.txt");
             List<string> sortedFileStrings = File.ReadAllLines(filePath).ToList();
 
-            List<string> expectedSortedStrings = new List<string> { "CatRat", "Gabby", "Kitty Fairy", "Mercat", "Pandy" };
-            Assert.That(sortedFileStrings.SequenceEqual(expectedSortedStrings));
+            List<string> expectedSortedNames = new List<string> { "Marin Alvarez", "Adonis Julius Archer", "Beau Tristan Bentley", "Hunter Uriah Mathew Clarke", "Leo Gardner", "Vaughn Lewis", "London Lindsey", "Mikayla Lopez", "Janet Parsons", "Frankie Conner Ritter", "Shelby Nathan Yoder" };
+            Assert.That(sortedFileStrings.SequenceEqual(expectedSortedNames));
         }
 
         [Test]
@@ -83,23 +95,24 @@ namespace NameSorting.Tests
             string filePath = FileReadWriter.GetFinalPath("sorted-names-list.txt");
             List<string> sortedFileStrings = File.ReadAllLines(filePath).ToList();
 
-            List<string> expectedSortedStrings = new List<string> { "Pillow Cat", "Pandy Paws", "Gabby", "Cakey", "Box Cat" };
-            Assert.That(sortedFileStrings.SequenceEqual(expectedSortedStrings));
+            List<string> expectedSortedNames = new List<string> { "Shelby Nathan Yoder", "Frankie Conner Ritter", "Janet Parsons", "Mikayla Lopez", "London Lindsey", "Vaughn Lewis", "Leo Gardner", "Hunter Uriah Mathew Clarke", "Beau Tristan Bentley", "Adonis Julius Archer", "Marin Alvarez" };
+            Assert.That(sortedFileStrings.SequenceEqual(expectedSortedNames));
         }
 
         [Test]
         ////Creates a file using functions created in our program, sorts it and tests it. 
         public void TestFullProgramReverseOrderTwo()
         {
-            List<string> nameListExample = ["Kitty Fairy", "Pandy", "Mercat", "Gabby", "CatRat"];
+            List<string> nameListExample = ["Janet Parsons", "Vaughn Lewis", "Adonis Julius Archer", "Shelby Nathan Yoder", "Marin Alvarez", "London Lindsey", "Beau Tristan Bentley", "Leo Gardner", "Hunter Uriah Mathew Clarke", "Mikayla Lopez", "Frankie Conner Ritter"];
             FileReadWriter.WriteStringListToFile(nameListExample, testTwoFileName);
 
             NameSorter.SortNamesInFile(testTwoFileName, false);
             string filePath = FileReadWriter.GetFinalPath("sorted-names-list.txt");
             List<string> sortedFileStrings = File.ReadAllLines(filePath).ToList();
 
-            List<string> expectedSortedStrings = new List<string> { "Pandy", "Mercat", "Kitty Fairy", "Gabby", "CatRat"};
-            Assert.That(sortedFileStrings.SequenceEqual(expectedSortedStrings));
+            List<string> expectedSortedNames = new List<string> { "Shelby Nathan Yoder", "Frankie Conner Ritter", "Janet Parsons", "Mikayla Lopez", "London Lindsey", "Vaughn Lewis", "Leo Gardner", "Hunter Uriah Mathew Clarke", "Beau Tristan Bentley", "Adonis Julius Archer", "Marin Alvarez" };
+
+            Assert.That(sortedFileStrings.SequenceEqual(expectedSortedNames));
         }
 
         [TearDown]
